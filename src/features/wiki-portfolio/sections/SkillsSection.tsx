@@ -24,7 +24,7 @@ export function SkillsSection() {
               <WikiCell>
                 {items.map((skill) => (
                   <span
-                    className="mr-1 mt-0.5 inline-block rounded-[2px] border border-[var(--wiki-skill-border)] bg-[var(--wiki-skill-bg)] px-2 py-px text-[12.5px] text-[var(--wiki-link)] transition-colors hover:bg-[var(--wiki-skill-hover)]"
+                    className="mr-1 mt-0.5 inline-block rounded-[2px] border border-[var(--wiki-skill-border)] bg-[var(--wiki-skill-bg)] px-2 py-px text-[12.5px] text-[var(--wiki-link)] hover:bg-[var(--wiki-skill-hover)]"
                     key={skill}
                   >
                     {skill}

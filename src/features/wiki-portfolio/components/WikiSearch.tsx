@@ -25,7 +25,7 @@ export function WikiSearch() {
   return (
     <div className="relative flex min-w-[220px] max-w-[420px] flex-1 items-center max-md:order-3 max-md:w-full max-md:max-w-none">
       <input
-        className="min-w-0 flex-1 rounded-[2px] border border-[var(--wiki-border-strong)] bg-[var(--wiki-surface)] px-2 py-1 text-[13px] text-[var(--wiki-text)] outline-none transition-colors placeholder:text-[var(--wiki-muted-text)] focus:border-[var(--wiki-link-hover)]"
+        className="min-w-0 flex-1 rounded-[2px] border border-[var(--wiki-border-strong)] bg-[var(--wiki-surface)] px-2 py-1 text-[13px] text-[var(--wiki-text)] outline-none placeholder:text-[var(--wiki-muted-text)] focus:border-[var(--wiki-link-hover)]"
         onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
         onChange={(event) => {
           setQuery(event.target.value);

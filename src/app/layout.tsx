@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
+
+import { ThemeScript } from "./theme-script";
+
 import "./globals.css";
 
 const lato = Lato({
@@ -25,6 +28,9 @@ export default function RootLayout({
       className={`${lato.variable} h-full`}
       suppressHydrationWarning
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );

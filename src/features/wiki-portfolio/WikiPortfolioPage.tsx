@@ -5,7 +5,7 @@ import { WikiHeader } from "./components/WikiHeader";
 
 export function WikiPortfolioPage() {
   return (
-    <div className="min-h-screen bg-[var(--wiki-page-bg)] text-sm leading-[1.6] text-[var(--wiki-text)] transition-colors duration-150">
+    <div className="min-h-screen bg-[var(--wiki-page-bg)] text-sm leading-[1.6] text-[var(--wiki-text)]">
       <WikiHeader />
       <ArticleChrome>
         <WikiArticle />

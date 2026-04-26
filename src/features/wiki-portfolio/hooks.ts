@@ -43,8 +43,9 @@ export function useWikiTheme() {
     }
 
     document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
     window.localStorage.setItem(WIKI_THEME_STORAGE_KEY, theme);
   }, [hasLoadedPreference, theme]);
 
-  return { setTheme, theme };
+  return { hasLoadedPreference, setTheme, theme };
 }

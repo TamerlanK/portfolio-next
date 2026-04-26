@@ -1,11 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useId, useState } from "react";
 
 import { WikiAnchorButton, WikiButton } from "@/components/wiki/WikiButton";
 
 import { CV_DOWNLOAD_NAME, CV_FILE } from "../constants";
-import { PdfDocumentViewer } from "./PdfDocumentViewer";
+
+const PdfDocumentViewer = dynamic(
+  () =>
+    import("./PdfDocumentViewer").then((module) => module.PdfDocumentViewer),
+  {
+    loading: () => (
+      <div className="min-h-0 flex-1 bg-[var(--wiki-subtle-bg)] p-3">
+        <div className="border border-[var(--wiki-border)] bg-[var(--wiki-surface)] px-3 py-2 text-center text-[13px] text-[var(--wiki-muted-text)]">
+          Loading CV preview...
+        </div>
+      </div>
+    ),
+    ssr: false,
+  },
+);
 
 type CvActionsProps = {
   compact?: boolean;
