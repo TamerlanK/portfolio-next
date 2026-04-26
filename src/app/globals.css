@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --wiki-serif: "Georgia", "Times New Roman", serif;
+  --wiki-surface: #ffffff;
+  --wiki-page-bg: #f8f9fa;
+  --wiki-subtle-bg: #eaecf0;
+  --wiki-control-bg: #ffffff;
+  --wiki-control-bg-end: #eaecf0;
+  --wiki-control-hover: #eaf3ff;
+  --wiki-accent-bg: #b8c7d9;
+  --wiki-success-bg: #cef2e0;
+  --wiki-success-border: #a3d3b5;
+  --wiki-avatar-bg: #e0e4e8;
+  --wiki-skill-bg: #eaf3ff;
+  --wiki-skill-hover: #d0e3f7;
+  --wiki-border: #c8ccd1;
+  --wiki-border-strong: #a2a9b1;
+  --wiki-skill-border: #a3c1e0;
+  --wiki-text: #202122;
+  --wiki-muted-text: #54595d;
+  --wiki-link: #0645ad;
+  --wiki-link-hover: #3366cc;
+  --wiki-shadow: rgb(0 0 0 / 0.12);
+  --wiki-dialog-shadow: rgb(0 0 0 / 0.25);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --wiki-surface: #101418;
+  --wiki-page-bg: #0b0f14;
+  --wiki-subtle-bg: #20262e;
+  --wiki-control-bg: #171d23;
+  --wiki-control-bg-end: #252c35;
+  --wiki-control-hover: #223349;
+  --wiki-accent-bg: #33475f;
+  --wiki-success-bg: #183c2b;
+  --wiki-success-border: #2f6f50;
+  --wiki-avatar-bg: #252d36;
+  --wiki-skill-bg: #172e46;
+  --wiki-skill-hover: #213d59;
+  --wiki-border: #3a424b;
+  --wiki-border-strong: #5b6672;
+  --wiki-skill-border: #35658f;
+  --wiki-text: #eaecf0;
+  --wiki-muted-text: #a2a9b1;
+  --wiki-link: #88bfff;
+  --wiki-link-hover: #a7d0ff;
+  --wiki-shadow: rgb(0 0 0 / 0.45);
+  --wiki-dialog-shadow: rgb(0 0 0 / 0.65);
+}
+
+@theme inline {
+  --font-sans: var(--font-lato);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--wiki-page-bg);
+  color: var(--wiki-text);
+}
+
+body {
+  font-family: var(--font-lato), "Segoe UI", sans-serif;
+}
