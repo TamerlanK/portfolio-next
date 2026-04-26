@@ -6,9 +6,14 @@ export function LastModified() {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    setNow(new Date());
-    const timer = window.setInterval(() => setNow(new Date()), 60000);
-    return () => window.clearInterval(timer);
+    const updateTimestamp = () => setNow(new Date());
+    const initialTimer = window.setTimeout(updateTimestamp, 0);
+    const interval = window.setInterval(updateTimestamp, 60000);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(interval);
+    };
   }, []);
 
   if (!now) {

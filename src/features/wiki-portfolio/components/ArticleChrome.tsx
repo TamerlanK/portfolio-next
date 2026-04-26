@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { WikiLink } from "@/components/wiki/WikiLink";
-import { PERSON } from "@/lib/portfolio-data";
+import { PERSON } from "../content";
 
 type ArticleChromeProps = {
   children: ReactNode;

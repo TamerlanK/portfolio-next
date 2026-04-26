@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 
-import { TOC_ITEMS } from "@/lib/portfolio-data";
+import { TOC_ITEMS } from "../content";
 import { scrollToElement } from "@/lib/dom/scroll";
 
 import { HR_SUGGESTIONS } from "../constants";

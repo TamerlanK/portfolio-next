@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { PERSON } from "@/lib/portfolio-data";
+import { WikiButton } from "@/components/wiki/WikiButton";
+
+import { PERSON } from "../content";
 
 export function HireMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,14 +41,13 @@ export function HireMenu() {
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
-      <button
+      <WikiButton
         aria-expanded={isOpen}
-        className="inline-flex cursor-pointer items-center rounded-[2px] border border-[var(--wiki-border-strong)] bg-linear-to-b from-[var(--wiki-control-bg)] to-[var(--wiki-control-bg-end)] px-2 py-0.5 text-[12.5px] font-bold text-[var(--wiki-link)] hover:bg-[var(--wiki-control-hover)] hover:underline"
+        className="px-2 py-0.5"
         onClick={() => setIsOpen((current) => !current)}
-        type="button"
       >
         Hire me
-      </button>
+      </WikiButton>
       {isOpen && (
         <div className="absolute left-0 top-full z-40 mt-1 min-w-28 border border-[var(--wiki-border-strong)] bg-[var(--wiki-surface)] shadow-[0_2px_8px_var(--wiki-shadow)]">
           <a

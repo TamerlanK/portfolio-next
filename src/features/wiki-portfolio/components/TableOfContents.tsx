@@ -1,21 +1,21 @@
 "use client";
 
-import { TOC_ITEMS } from "@/lib/portfolio-data";
+import { useState } from "react";
+
 import { scrollToElement } from "@/lib/dom/scroll";
 
-type TableOfContentsProps = {
-  onToggle: () => void;
-  visible: boolean;
-};
+import { TOC_ITEMS } from "../content";
 
-export function TableOfContents({ onToggle, visible }: TableOfContentsProps) {
+export function TableOfContents() {
+  const [visible, setVisible] = useState(true);
+
   return (
     <div className="mb-[18px] inline-block min-w-60 border border-[var(--wiki-border)] bg-[var(--wiki-page-bg)] px-4 py-2.5">
       <div className="mb-1.5 flex justify-center gap-2 text-center text-sm font-bold">
         <span>Contents</span>
         <button
           className="cursor-pointer text-[12.5px] font-normal text-[var(--wiki-link)]"
-          onClick={onToggle}
+          onClick={() => setVisible((current) => !current)}
           type="button"
         >
           [{visible ? "hide" : "show"}]

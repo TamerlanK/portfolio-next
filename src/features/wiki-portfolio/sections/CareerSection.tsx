@@ -1,6 +1,7 @@
 import { SectionHeading } from "@/components/wiki/SectionHeading";
 import { WikiLink } from "@/components/wiki/WikiLink";
-import { EXPERIENCE, PERSON } from "@/lib/portfolio-data";
+import { WikiParagraph } from "@/components/wiki/WikiParagraph";
+import { EXPERIENCE, PERSON } from "../content";
 
 import { ExperienceBullets } from "./ExperienceBullets";
 
@@ -19,24 +20,25 @@ export function CareerSection() {
   return (
     <>
       <SectionHeading id="career">Career</SectionHeading>
-      <p className="mb-2.5 text-sm leading-[1.65] text-[var(--wiki-text)]">
+      <WikiParagraph>
         Kangarli began his professional career in May 2023 and progressed from a
-        frontend internship to frontend engineering roles while gaining practical
-        usage of Node.js and NestJS through backend-facing work across
-        Azerbaijani and international technology organizations.
-      </p>
+        frontend internship to frontend and fullstack engineering roles across
+        Azerbaijani and international technology organizations. His work spans
+        logistics, healthcare, HR, accounting, public-facing landing pages, and
+        real-time multi-tenant business systems.
+      </WikiParagraph>
 
       {EXPERIENCE.map((experience) => (
         <section key={`${experience.company}-${experience.year}`}>
           <SectionHeading id={getCareerSectionId(experience.company)} level={3}>
             {experience.company} ({experience.year})
           </SectionHeading>
-          <p className="mb-2.5 text-sm leading-[1.65] text-[var(--wiki-text)]">
+          <WikiParagraph>
             <b>{PERSON.name.split(" ")[1]}</b> served as a {experience.role} at{" "}
-            <WikiLink>{experience.company}</WikiLink>, contributing to scalable
-            product delivery, frontend architecture, and cross-functional
-            collaboration in production environments.
-          </p>
+            <WikiLink>{experience.company}</WikiLink>, contributing to
+            production delivery, frontend architecture, and cross-functional
+            collaboration in professional engineering environments.
+          </WikiParagraph>
           <ExperienceBullets bullets={experience.bullets} />
         </section>
       ))}

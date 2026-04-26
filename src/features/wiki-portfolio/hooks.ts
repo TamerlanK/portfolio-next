@@ -29,8 +29,12 @@ export function useWikiTheme() {
   const [hasLoadedPreference, setHasLoadedPreference] = useState(false);
 
   useEffect(() => {
-    setTheme(getPreferredTheme());
-    setHasLoadedPreference(true);
+    const frame = window.requestAnimationFrame(() => {
+      setTheme(getPreferredTheme());
+      setHasLoadedPreference(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {

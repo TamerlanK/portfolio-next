@@ -1,51 +1,45 @@
 import { SectionHeading } from "@/components/wiki/SectionHeading";
 import { WikiLink } from "@/components/wiki/WikiLink";
-import { NOTABLE_WORK } from "@/lib/portfolio-data";
+import { WikiParagraph } from "@/components/wiki/WikiParagraph";
+import { WikiCell, WikiTable } from "@/components/wiki/WikiTable";
+import { NOTABLE_WORK } from "../content";
 
 export function ProjectsSection() {
   return (
     <>
       <SectionHeading id="projects">Notable work and projects</SectionHeading>
-      <p className="mb-2.5 text-sm leading-[1.65] text-[var(--wiki-text)]">
+      <WikiParagraph>
         Throughout his career, Kangarli has contributed to projects across
         logistics, healthcare, HR, and accounting domains.
-      </p>
-      <table className="my-2.5 w-full border-collapse text-[13.5px]">
+      </WikiParagraph>
+      <WikiTable>
         <thead>
           <tr>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-2.5 py-1.5 text-left align-top font-bold">
-              Project
-            </th>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-2.5 py-1.5 text-left align-top font-bold">
-              Description
-            </th>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-2.5 py-1.5 text-left align-top font-bold">
-              Company
-            </th>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-2.5 py-1.5 text-left align-top font-bold">
-              Technologies
-            </th>
+            <WikiCell as="th" header>Project</WikiCell>
+            <WikiCell as="th" header>Description</WikiCell>
+            <WikiCell as="th" header>Company</WikiCell>
+            <WikiCell as="th" header>Technologies</WikiCell>
           </tr>
         </thead>
         <tbody>
           {NOTABLE_WORK.map((project) => (
             <tr className="hover:[&>td]:bg-[var(--wiki-page-bg)]" key={project.name}>
-              <td className="border border-[var(--wiki-border)] px-2.5 py-1.5 text-left align-top">
+              <WikiCell>
                 <WikiLink>{project.name}</WikiLink>
-              </td>
-              <td className="border border-[var(--wiki-border)] px-2.5 py-1.5 text-left align-top">
+              </WikiCell>
+              <WikiCell>
                 {project.desc}
-              </td>
-              <td className="border border-[var(--wiki-border)] px-2.5 py-1.5 text-left align-top">
+              </WikiCell>
+              <WikiCell>
                 {project.company}
-              </td>
-              <td className="border border-[var(--wiki-border)] px-2.5 py-1.5 text-left align-top">
+              </WikiCell>
+              <WikiCell>
                 <i>{project.tech}</i>
-              </td>
+              </WikiCell>
             </tr>
           ))}
         </tbody>
-      </table>
+      </WikiTable>
     </>
   );
 }

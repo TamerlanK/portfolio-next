@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tamerlan Kangarli Wiki Portfolio
+
+A Wikipedia-inspired portfolio built with Next.js, React, TypeScript, and Tailwind CSS. The project is intentionally structured as a small production-grade frontend system rather than a single-page demo: static article content is server-rendered, interactive behavior is isolated into client islands, and the visual language is captured through reusable wiki UI primitives.
+
+## Why This Project Exists
+
+This portfolio is designed to communicate two things at once:
+
+- A clear professional profile for Tamerlan Kangarli as a Frontend Engineer.
+- A codebase that demonstrates architectural discipline, component boundaries, maintainability, and modern Next.js practices.
+
+The interface borrows the familiar information density of Wikipedia while adapting it into a personal encyclopedia format: searchable sections, an infobox, structured career history, skill tables, contact cards, theme switching, and an in-browser CV preview.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 App Router
+- **UI Runtime:** React 19
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4 with CSS custom properties for theme tokens
+- **PDF Preview:** `pdfjs-dist`
+- **Quality Gates:** ESLint flat config, TypeScript strict mode, production build verification
+
+## Architecture
+
+```txt
+src/
+  app/
+    layout.tsx              # Root document, metadata, font wiring
+    page.tsx                # Route entrypoint
+    global-error.tsx        # Global runtime error boundary
+    not-found.tsx           # 404 article fallback
+    globals.css             # Tailwind import and wiki design tokens
+
+  components/
+    wiki/                   # Reusable wiki UI primitives
+
+  features/
+    wiki-portfolio/
+      content/              # Domain content split by concern
+      components/           # Feature-specific UI and client islands
+      sections/             # Article sections
+      WikiPortfolioPage.tsx # Server-rendered feature shell
+
+  hooks/                    # Shared browser hooks
+  lib/
+    dom/                    # Small DOM utilities
+```
+
+## Key Engineering Decisions
+
+### Server-first rendering
+
+The portfolio article is mostly static content, so the page shell and article composition are server components. Client components are reserved for browser-only interactions such as search, theme selection, CV modal rendering, collapsible contents, expandable career bullets, and scroll-to-top behavior.
+
+### Feature-local content
+
+Portfolio data lives inside `src/features/wiki-portfolio/content` instead of a generic global `lib` module. That keeps domain content close to the feature that owns it and makes future edits safer.
+
+### Small reusable primitives
+
+Repeated wiki patterns are centralized in `src/components/wiki`, including links, headings, paragraphs, tables, buttons, and info cards. This keeps section files focused on content and intent instead of long repeated Tailwind strings.
+
+### Theme tokens over ad-hoc colors
+
+The visual system is driven by CSS variables in `globals.css`. Components reference semantic wiki tokens such as `--wiki-surface`, `--wiki-border`, and `--wiki-link`, which keeps light/dark mode consistent and easy to evolve.
+
+### Explicit quality gate
+
+The `check` script runs linting, type checking, and a production build. That gives the project a single command for pre-deploy confidence.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev        # Start the local development server
+npm run build      # Create a production build
+npm run start      # Start the production server
+npm run lint       # Run ESLint
+npm run typecheck  # Run TypeScript without emitting files
+npm run check      # Run lint, typecheck, and production build
+```
 
-## Learn More
+## Content Editing Guide
 
-To learn more about Next.js, take a look at the following resources:
+- Personal profile: `src/features/wiki-portfolio/content/person.ts`
+- Education: `src/features/wiki-portfolio/content/education.ts`
+- Experience: `src/features/wiki-portfolio/content/experience.ts`
+- Skills: `src/features/wiki-portfolio/content/skills.ts`
+- Projects: `src/features/wiki-portfolio/content/projects.ts`
+- Languages: `src/features/wiki-portfolio/content/languages.ts`
+- Table of contents: `src/features/wiki-portfolio/content/navigation.ts`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Runtime assets live in `public/`:
 
-## Deploy on Vercel
+- `me.jpg` is used by the infobox profile image.
+- `TamerlanKangarliCV.pdf` is used by the CV download and preview actions.
+- `pdf.worker.min.mjs` is the PDF.js worker used by the browser CV renderer.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The PDF worker is synchronized from `pdfjs-dist` by `scripts/sync-pdf-worker.mjs`, which runs automatically after install. If `pdfjs-dist` is upgraded, run `npm run sync:pdf-worker` and verify the CV preview.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Quality Notes
+
+This repository is intentionally small, but it follows the same habits expected in larger frontend systems:
+
+- Keep static content server-rendered by default.
+- Isolate browser-only behavior into explicit client components.
+- Prefer feature-local modules for feature-owned data and UI.
+- Promote repeated styling into semantic primitives.
+- Treat lint, typecheck, and production build as the minimum merge bar.

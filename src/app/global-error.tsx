@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-export default function GlobalNotFound({
+export default function GlobalError({
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   return (
     <html lang="en">
@@ -28,5 +28,5 @@ export default function GlobalNotFound({
         </main>
       </body>
     </html>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { TOC_ITEMS } from "@/lib/portfolio-data";
+import { TOC_ITEMS } from "./content";
 
 export const CV_FILE = "/TamerlanKangarliCV.pdf";
 export const CV_DOWNLOAD_NAME = "TamerlanKangarliCV.pdf";

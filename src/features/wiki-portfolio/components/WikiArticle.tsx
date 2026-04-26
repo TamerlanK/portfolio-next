@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 import { SectionHeading } from "@/components/wiki/SectionHeading";
 
 import { ContactLinks } from "./ContactLinks";
@@ -18,16 +14,11 @@ import { ProjectsSection } from "../sections/ProjectsSection";
 import { SkillsSection } from "../sections/SkillsSection";
 
 export function WikiArticle() {
-  const [tocVisible, setTocVisible] = useState(true);
-
   return (
     <div className="overflow-hidden">
       <Infobox />
       <ArticleIntro />
-      <TableOfContents
-        onToggle={() => setTocVisible((visible) => !visible)}
-        visible={tocVisible}
-      />
+      <TableOfContents />
       <EducationSection />
       <CareerSection />
       <SkillsSection />

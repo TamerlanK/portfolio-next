@@ -2,6 +2,8 @@
 
 import { useEffect, useId, useState } from "react";
 
+import { WikiAnchorButton, WikiButton } from "@/components/wiki/WikiButton";
+
 import { CV_DOWNLOAD_NAME, CV_FILE } from "../constants";
 import { PdfDocumentViewer } from "./PdfDocumentViewer";
 
@@ -36,20 +38,12 @@ export function CvActions({ compact = false }: CvActionsProps) {
   return (
     <>
       <div className="flex flex-wrap gap-2">
-        <button
-          className="inline-flex cursor-pointer items-center rounded-[2px] border border-[var(--wiki-border-strong)] bg-linear-to-b from-[var(--wiki-control-bg)] to-[var(--wiki-control-bg-end)] px-2.5 py-1 text-[12.5px] font-bold text-[var(--wiki-link)] no-underline hover:bg-[var(--wiki-control-hover)] hover:underline"
-          onClick={() => setIsViewerOpen(true)}
-          type="button"
-        >
+        <WikiButton onClick={() => setIsViewerOpen(true)}>
           Review CV
-        </button>
-        <a
-          className="inline-flex cursor-pointer items-center rounded-[2px] border border-[var(--wiki-border-strong)] bg-linear-to-b from-[var(--wiki-control-bg)] to-[var(--wiki-control-bg-end)] px-2.5 py-1 text-[12.5px] font-bold text-[var(--wiki-link)] no-underline hover:bg-[var(--wiki-control-hover)] hover:underline"
-          download={CV_DOWNLOAD_NAME}
-          href={CV_FILE}
-        >
+        </WikiButton>
+        <WikiAnchorButton download={CV_DOWNLOAD_NAME} href={CV_FILE}>
           {compact ? "Download" : "Download CV"}
-        </a>
+        </WikiAnchorButton>
       </div>
 
       {isViewerOpen && (
@@ -71,13 +65,12 @@ export function CvActions({ compact = false }: CvActionsProps) {
               >
                 Tamerlan Kangarli CV
               </div>
-              <button
-                className="cursor-pointer rounded-[2px] border border-[var(--wiki-border-strong)] bg-linear-to-b from-[var(--wiki-control-bg)] to-[var(--wiki-control-bg-end)] px-2.5 py-1 text-[12.5px] text-[var(--wiki-text)] hover:bg-[var(--wiki-control-hover)]"
+              <WikiButton
+                className="font-normal text-[var(--wiki-text)] hover:no-underline"
                 onClick={() => setIsViewerOpen(false)}
-                type="button"
               >
                 Close
-              </button>
+              </WikiButton>
             </div>
             <PdfDocumentViewer src={CV_FILE} />
           </div>

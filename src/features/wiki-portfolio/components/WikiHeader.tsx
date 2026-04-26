@@ -2,14 +2,14 @@
 
 import type { WikiTheme } from "../types";
 import { scrollToPageTop } from "@/lib/dom/scroll";
+import { useWikiTheme } from "../hooks";
 import { WikiSearch } from "./WikiSearch";
 
-type WikiHeaderProps = {
-  onThemeChange: (theme: WikiTheme) => void;
-  theme: WikiTheme;
-};
+const THEME_OPTIONS: WikiTheme[] = ["light", "dark"];
 
-export function WikiHeader({ onThemeChange, theme }: WikiHeaderProps) {
+export function WikiHeader() {
+  const { setTheme, theme } = useWikiTheme();
+
   return (
     <header className="sticky top-0 z-[100] flex items-center justify-between gap-4 border-b border-[var(--wiki-border)] bg-[var(--wiki-surface)] px-6 py-2 max-md:flex-wrap max-md:items-start max-md:gap-2 max-md:px-3.5">
       <button
@@ -39,7 +39,7 @@ export function WikiHeader({ onThemeChange, theme }: WikiHeaderProps) {
           className="flex items-center overflow-hidden rounded-[2px] border border-[var(--wiki-border-strong)] bg-[var(--wiki-page-bg)]"
           role="group"
         >
-          {(["light", "dark"] as const).map((themeOption) => (
+          {THEME_OPTIONS.map((themeOption) => (
             <button
               aria-pressed={theme === themeOption}
               className={`min-w-14 cursor-pointer border-r border-[var(--wiki-border-strong)] px-2 py-1 text-center text-[12px] text-[var(--wiki-link)] last:border-r-0 hover:bg-[var(--wiki-control-hover)] hover:underline ${
@@ -48,7 +48,7 @@ export function WikiHeader({ onThemeChange, theme }: WikiHeaderProps) {
                   : ""
               }`}
               key={themeOption}
-              onClick={() => onThemeChange(themeOption)}
+              onClick={() => setTheme(themeOption)}
               type="button"
             >
               {themeOption === "light" ? "Light" : "Dark"}

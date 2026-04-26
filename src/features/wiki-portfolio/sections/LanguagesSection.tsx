@@ -1,38 +1,41 @@
 import { SectionHeading } from "@/components/wiki/SectionHeading";
 import { WikiLink } from "@/components/wiki/WikiLink";
-import { LANGUAGES_SPOKEN } from "@/lib/portfolio-data";
+import { WikiParagraph } from "@/components/wiki/WikiParagraph";
+import { WikiCell, WikiTable } from "@/components/wiki/WikiTable";
+
+import { LANGUAGES_SPOKEN } from "../content";
 
 export function LanguagesSection() {
   return (
     <>
       <SectionHeading id="languages">Languages</SectionHeading>
-      <p className="mb-2.5 text-sm leading-[1.65] text-[var(--wiki-text)]">
+      <WikiParagraph>
         Kangarli works professionally in Azerbaijani and English:
-      </p>
-      <table className="my-2 border-collapse text-[13.5px]">
+      </WikiParagraph>
+      <WikiTable className="my-2 w-auto">
         <thead>
           <tr>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-3.5 py-1.5 text-left font-bold">
+            <WikiCell as="th" className="px-3.5" header>
               Language
-            </th>
-            <th className="border border-[var(--wiki-border)] bg-[var(--wiki-subtle-bg)] px-3.5 py-1.5 text-left font-bold">
+            </WikiCell>
+            <WikiCell as="th" className="px-3.5" header>
               Proficiency
-            </th>
+            </WikiCell>
           </tr>
         </thead>
         <tbody>
           {LANGUAGES_SPOKEN.map((language) => (
             <tr key={language.lang}>
-              <td className="border border-[var(--wiki-border)] px-3.5 py-1.5 text-left">
+              <WikiCell className="px-3.5">
                 <WikiLink>{language.lang}</WikiLink>
-              </td>
-              <td className="border border-[var(--wiki-border)] px-3.5 py-1.5 text-left">
+              </WikiCell>
+              <WikiCell className="px-3.5">
                 {language.level}
-              </td>
+              </WikiCell>
             </tr>
           ))}
         </tbody>
-      </table>
+      </WikiTable>
     </>
   );
 }

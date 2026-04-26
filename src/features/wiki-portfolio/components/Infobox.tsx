@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { PERSON } from "@/lib/portfolio-data";
+import { PERSON } from "../content";
 
 import { CvActions } from "./CvActions";
 import { HireMenu } from "./HireMenu";

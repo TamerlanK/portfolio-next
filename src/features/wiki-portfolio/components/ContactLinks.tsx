@@ -1,4 +1,6 @@
-import { PERSON } from "@/lib/portfolio-data";
+import { WikiInfoCard } from "@/components/wiki/WikiInfoCard";
+
+import { PERSON } from "../content";
 
 import { CvActions } from "./CvActions";
 
@@ -29,13 +31,7 @@ export function ContactLinks() {
   return (
     <div className="my-2.5 grid grid-cols-2 gap-2 max-md:grid-cols-1">
       {contactLinks.map((item) => (
-        <div
-          className="border border-[var(--wiki-border)] bg-[var(--wiki-page-bg)] px-3.5 py-2.5 text-[13px]"
-          key={item.label}
-        >
-          <div className="mb-0.5 text-[11px] font-bold uppercase tracking-[0.04em] text-[var(--wiki-muted-text)]">
-            {item.label}
-          </div>
+        <WikiInfoCard key={item.label} label={item.label}>
           <a
             className="text-[13.5px] text-[var(--wiki-link)] no-underline hover:underline"
             href={item.href}
@@ -44,14 +40,11 @@ export function ContactLinks() {
           >
             {item.text}
           </a>
-        </div>
+        </WikiInfoCard>
       ))}
-      <div className="border border-[var(--wiki-border)] bg-[var(--wiki-page-bg)] px-3.5 py-2.5 text-[13px]">
-        <div className="mb-0.5 text-[11px] font-bold uppercase tracking-[0.04em] text-[var(--wiki-muted-text)]">
-          CV
-        </div>
+      <WikiInfoCard label="CV">
         <CvActions />
-      </div>
+      </WikiInfoCard>
     </div>
   );
 }

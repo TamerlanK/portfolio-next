@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from "@/components/wiki/ExternalLinkIcon";
 import { SectionHeading } from "@/components/wiki/SectionHeading";
-import { PERSON } from "@/lib/portfolio-data";
+import { PERSON } from "../content";
 
 const externalLinks = [
   {
