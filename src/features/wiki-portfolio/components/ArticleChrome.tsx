@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from "react"
 
-import { WikiLink } from "@/components/wiki/WikiLink";
-import { PERSON } from "../content";
+import { WikiLink } from "@/components/wiki/WikiLink"
+import { PERSON } from "../content"
 
 type ArticleChromeProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export function ArticleChrome({ children }: ArticleChromeProps) {
   return (
@@ -13,11 +13,8 @@ export function ArticleChrome({ children }: ArticleChromeProps) {
       <h1 className="border-b border-[var(--wiki-border-strong)] pb-1 font-[family:var(--wiki-serif)] text-3xl font-normal leading-[1.2]">
         {PERSON.name}
       </h1>
-      <div className="mb-4 mt-2 text-[12.5px] text-[var(--wiki-muted-text)]">
-        From WikiPortfolio, the free personal encyclopedia
-      </div>
 
-      <div className="mb-4 flex items-center gap-2 rounded-[2px] border border-[var(--wiki-success-border)] bg-[var(--wiki-success-bg)] px-3.5 py-2 text-[13px]">
+      <div className="mb-4 mt-2 flex items-center gap-2 rounded-[2px] border border-[var(--wiki-success-border)] bg-[var(--wiki-success-bg)] px-3.5 py-2 text-[13px]">
         <span className="text-lg">&#10003;</span>
         This article is about the software developer from Azerbaijan. Content is
         maintained and verified by the subject.
@@ -34,5 +31,5 @@ export function ArticleChrome({ children }: ArticleChromeProps) {
 
       {children}
     </main>
-  );
+  )
 }
