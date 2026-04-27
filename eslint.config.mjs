@@ -8,7 +8,6 @@ const eslintConfig = [
     ignores: [
       ".next/**",
       "node_modules/**",
-      "public/pdf.worker.min.mjs",
       "next-env.d.ts",
     ],
   },

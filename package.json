@@ -4,17 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "postinstall": "node scripts/sync-pdf-worker.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "sync:pdf-worker": "node scripts/sync-pdf-worker.mjs",
     "check": "npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "next": "^16.2.4",
-    "pdfjs-dist": "^5.6.205",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

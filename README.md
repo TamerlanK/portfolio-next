@@ -17,7 +17,7 @@ The interface borrows the familiar information density of Wikipedia while adapti
 - **UI Runtime:** React 19
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4 with CSS custom properties for theme tokens
-- **PDF Preview:** `pdfjs-dist`
+- **PDF Preview:** Browser-native PDF viewer
 - **Quality Gates:** ESLint flat config, TypeScript strict mode, production build verification
 
 ## Architecture
@@ -104,9 +104,6 @@ Runtime assets live in `public/`:
 
 - `me.webp` is used by the infobox profile image.
 - `TamerlanKangarliCV.pdf` is used by the CV download and preview actions.
-- `pdf.worker.min.mjs` is the PDF.js worker used by the browser CV renderer.
-
-The PDF worker is synchronized from `pdfjs-dist` by `scripts/sync-pdf-worker.mjs`, which runs automatically after install. If `pdfjs-dist` is upgraded, run `npm run sync:pdf-worker` and verify the CV preview.
 
 ## Quality Notes
 
