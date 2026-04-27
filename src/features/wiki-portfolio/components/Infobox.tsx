@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import { PERSON } from "../content";
+import { PERSON } from "../content"
 
-import { CvActions } from "./CvActions";
-import { HireMenu } from "./HireMenu";
-import { InfoRow } from "./InfoRow";
+import { CvActions } from "./CvActions"
+import { HireMenu } from "./HireMenu"
+import { InfoRow } from "./InfoRow"
 
 export function Infobox() {
   return (
@@ -21,13 +21,16 @@ export function Infobox() {
       </thead>
       <tbody>
         <tr>
-          <td className="bg-[var(--wiki-page-bg)] p-2.5 text-center" colSpan={2}>
+          <td
+            className="bg-[var(--wiki-page-bg)] p-2.5 text-center"
+            colSpan={2}
+          >
             <Image
               alt={PERSON.name}
               className="mx-auto h-[220px] w-[180px] border border-[var(--wiki-border)] bg-[var(--wiki-avatar-bg)] object-cover object-center"
               height={220}
               priority
-              src="/me.jpg"
+              src="/me.webp"
               width={180}
             />
             <div className="mt-1 text-xs text-[var(--wiki-muted-text)]">
@@ -76,5 +79,5 @@ export function Infobox() {
         />
       </tbody>
     </table>
-  );
+  )
 }
