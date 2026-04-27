@@ -66,3 +66,19 @@ body {
 body {
   font-family: var(--font-lato), "Segoe UI", sans-serif;
 }
+
+:root[data-theme="light"]
+  .theme-switcher__button[data-theme-option="light"],
+:root[data-theme="dark"] .theme-switcher__button[data-theme-option="dark"] {
+  background: var(--wiki-surface);
+  color: var(--wiki-text);
+  font-weight: 700;
+}
+
+:root[data-theme="light"]
+  .theme-switcher__button[data-theme-option="light"]:hover,
+:root[data-theme="dark"]
+  .theme-switcher__button[data-theme-option="dark"]:hover {
+  background: var(--wiki-surface);
+  text-decoration: none;
+}
