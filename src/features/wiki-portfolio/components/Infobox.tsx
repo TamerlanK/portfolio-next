@@ -34,7 +34,7 @@ export function Infobox() {
               width={180}
             />
             <div className="mt-1 text-xs text-[var(--wiki-muted-text)]">
-              {PERSON.name}, 2025
+              {PERSON.name}, 2026
             </div>
           </td>
         </tr>

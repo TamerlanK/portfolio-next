@@ -14,12 +14,13 @@ export function ArticleIntro() {
         features across logistics and healthcare platforms.
       </WikiParagraph>
       <WikiParagraph>
-        Kangarli has over three years of professional experience building
-        production-grade web applications, mainly with <WikiLink>React</WikiLink>{" "}
-        and <WikiLink>TypeScript</WikiLink>. He is known for TypeScript
-        architecture, real-time UI engineering with SSE and live search,
-        improving test coverage from 40% to 85%, and shipping 40+ production
-        modules across multi-tenant enterprise platforms.
+        Kangarli has 4+ years of experience building{" "}
+        <WikiLink>React</WikiLink> applications across logistics, healthcare,
+        accounting, and HR domains. He specializes in TypeScript architecture,
+        real-time UI development with SSE, live search, and event-driven
+        systems, and has a track record of improving test coverage from 40% to
+        85% while delivering 40+ production modules across multi-tenant
+        platforms.
       </WikiParagraph>
     </>
   );

@@ -21,11 +21,11 @@ export function CareerSection() {
     <>
       <SectionHeading id="career">Career</SectionHeading>
       <WikiParagraph>
-        Kangarli began his professional career in May 2023 and progressed from a
-        frontend internship to frontend and fullstack engineering roles across
-        Azerbaijani and international technology organizations. His work spans
-        logistics, healthcare, HR, accounting, public-facing landing pages, and
-        real-time multi-tenant business systems.
+        Kangarli began his professional career in May 2022 and progressed
+        through frontend and fullstack engineering roles across Azerbaijani and
+        international technology organizations. His work spans logistics,
+        healthcare, HR, accounting, public-facing landing pages, and real-time
+        multi-tenant business systems.
       </WikiParagraph>
 
       {EXPERIENCE.map((experience) => (

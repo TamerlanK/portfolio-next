@@ -103,7 +103,7 @@ npm run check      # Run lint, typecheck, and production build
 Runtime assets live in `public/`:
 
 - `me.webp` is used by the infobox profile image.
-- `TamerlanKangarliCV.pdf` is used by the CV download and preview actions.
+- `resume.pdf` is used by the CV download and preview actions.
 
 ## Quality Notes
 

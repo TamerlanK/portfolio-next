@@ -15,5 +15,5 @@ export const PERSON = {
   linkedin: "linkedin.com/in/tamerlankangarli",
   knownFor:
     "React Architecture, Real-Time UI Systems, TypeScript, Fullstack Feature Delivery",
-  yearsActive: "2023 - present",
+  yearsActive: "2022 - present",
 } as const;
